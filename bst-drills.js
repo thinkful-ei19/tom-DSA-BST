@@ -157,9 +157,18 @@ function main() {
   bst.insert(7,7);
   //console.log(JSON.stringify(bst));
   console.log(bst);
+  console.log(height(bst));
 }
 
 main();
 // Height of a BST
 // Write an algorithm to find the height of a binary search tree. What is the run time of your algorithm?
+
+function height(node) {
+  if (!node) return 0;
+  let leftHeight = height(node.left);
+  let rightHeight = height(node.right);
+
+  return Math.max(leftHeight, rightHeight) + 1;
+}
 
